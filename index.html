@@ -1,45 +1,104 @@
-类结构图
+<!DOCTYPE html>
+<title>Hello</title>
+<style>
 
-底层数据结构
-基于数组实现的可动态扩容的列表，JDK1.2以后出现。
-常用方法
-1. add
-public void add(int index, E element)
-
-2. remove
-根据索引删除元素，返回删除的元素
-public E remove(int index)
-
-3. remove
-删除第一个出现的元素，如果删除的元素不在列表里面，则不删除
-public boolean remove(Object o)
-
-4. listIterator
-返回一个迭代器
-public ListIterator<E> listIterator()
-
-5. get
-Returns the element at the specified position in this list.
-public E get(int index)
-
-6.set
-Replaces the element at the specified position in this list with the specified element.
-public E set(int index, E element)
-
-7. 构造方法
-ArrayList(int initialCapacity)
-ArrayList(Collection<? extends E> c)
-
-扩容机制
-grow，每次扩容的数量是原来的两倍
-private void grow(int minCapacity) {
-        // overflow-conscious code
-        int oldCapacity = elementData.length;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-        if (newCapacity - minCapacity < 0)
-            newCapacity = minCapacity;
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
-            newCapacity = hugeCapacity(minCapacity);
-        // minCapacity is usually close to size, so this is a win:
-        elementData = Arrays.copyOf(elementData, newCapacity);
+body{
+	margin:15px auto;
+	font-family:Arial,sans-serif;
+	width:960px;
 }
+p{
+	margin:0 0 20px 0;
+}
+p,li{
+	line-height:20px;
+}
+#page_header{
+	width:100%;
+}
+#page_header > nav > ul,#page_footer > nav > ul{ 
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+#page_header > nav > ul > li,#page_footer > nav > ul >li{ 
+	margin:0 20px 0 0;
+	padding:0;
+	display:inline;
+}
+#posts{
+	float:left;
+	width:74%;
+}
+#posts aside{
+	float:right;
+	font-size:20px;
+	line-height:40px;
+	margin-left:5%;
+	width:35%;
+
+	}
+#sidebar{
+	float:left;
+	width:25%;
+}
+#page_footer{
+	clear:both;
+	display:block;
+	text-align:center;
+	width:100%;
+}
+
+
+
+</style>
+<header id="page_header">
+	<h1>APP 开发入门</h1>
+	<nav>
+		<ul>
+			<li><a href="#">最新文档</a>
+			<li><a href="#">精选文档</a>
+			<li><a href="#">技术支持</a>
+			<li><a href="#">联系我们</a>
+	</nav>
+</header>
+<section id="posts">
+
+	<article class="post">
+
+		<header>
+			<h2>移动前端开发之viewport的深入理解</h2>
+			<p>Itod
+			<time datetime="2019-04-17">2019-04-17</time>
+		</header>
+		                <aside>
+                        <p>欢迎转载
+                </aside>
+
+		<p>在移动设备进行重构或开发，首先要明白移动设备上的viewport，与有关meta标签的使用即可。才能让我们的页面适配不同分辨率的移动设备。
+		<p>...
+		<footer>
+			<p><a href="#">14 评论</a>
+	</article>
+</section>
+<section id="sidebar">
+	<nav>
+		<h3>归档</h3>
+		<ul>
+			<li><a href="#">4月2019年</a>
+			<li><a href="#">3月2019年</a>
+			<li><a href="#">2月2019年</a>
+			<li><a href="#">1月2019年</a>
+	</nav>
+</section>
+<footer id="page_footer">
+	<p>Copyright @2019 APP 开发.
+	<nav>
+		<ul>
+			<li><a href="#">主页</a>
+			<li><a href="#">关于</a>
+			<li><a href="#">团队</a>
+			<li><a href="#">隐私</a>
+	</nav>
+</footer>
