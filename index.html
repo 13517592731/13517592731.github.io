@@ -1,0 +1,45 @@
+类结构图
+
+底层数据结构
+基于数组实现的可动态扩容的列表，JDK1.2以后出现。
+常用方法
+1. add
+public void add(int index, E element)
+
+2. remove
+根据索引删除元素，返回删除的元素
+public E remove(int index)
+
+3. remove
+删除第一个出现的元素，如果删除的元素不在列表里面，则不删除
+public boolean remove(Object o)
+
+4. listIterator
+返回一个迭代器
+public ListIterator<E> listIterator()
+
+5. get
+Returns the element at the specified position in this list.
+public E get(int index)
+
+6.set
+Replaces the element at the specified position in this list with the specified element.
+public E set(int index, E element)
+
+7. 构造方法
+ArrayList(int initialCapacity)
+ArrayList(Collection<? extends E> c)
+
+扩容机制
+grow，每次扩容的数量是原来的两倍
+private void grow(int minCapacity) {
+        // overflow-conscious code
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+}
